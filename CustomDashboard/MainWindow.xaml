@@ -1,0 +1,98 @@
+﻿<Window
+    x:Class="CustomDashboard.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CustomDashboard"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:CustomDashboard.Model"
+    xmlns:view="clr-namespace:CustomDashboard.View"
+    Title="MainWindow"
+    Width="1327"
+    Height="708"
+    mc:Ignorable="d">
+
+    <!--  Style="{StaticResource WindowStyle.Aero}"  -->
+
+    <Grid TextBlock.FontSize="12">
+        <UniformGrid Columns="2" Visibility="Collapsed">
+            <Grid>
+                <view:Thermometer x:Name="thermoeter" />
+                <Slider
+                    VerticalAlignment="Bottom"
+                    Maximum="{Binding Maximum, ElementName=thermoeter}"
+                    Minimum="{Binding Minimum, ElementName=thermoeter}"
+                    Value="{Binding Value, ElementName=thermoeter, Mode=TwoWay}" />
+            </Grid>
+            <view:WarningLight LightState="Warning" />
+        </UniformGrid>
+
+        <UniformGrid Columns="2" Visibility="Visible">
+            <Grid>
+                <view:SpeedMeter
+                    x:Name="meter"
+                    Background="Black"
+                    Value="{Binding Value, ElementName=slider}" />
+                <Slider
+                    x:Name="slider"
+                    VerticalAlignment="Bottom"
+                    Maximum="{Binding ValueMax, ElementName=meter}"
+                    Minimum="{Binding ValueMin, ElementName=meter}" />
+            </Grid>
+
+            <Grid>
+                <UniformGrid Rows="2">
+                    <view:SpeedMeter
+                        x:Name="meter2"
+                        Background="#FF001E26"
+                        Visibility="Visible"
+                        Value="{Binding Value, ElementName=slider2}">
+                        <view:SpeedMeter.MeterArcs>
+                            <model:MeterArc
+                                model:ValueRange.ValueMax="180"
+                                model:ValueRange.ValueMin="90"
+                                Fill="#FFD2691E"
+                                RadiusFrom="0.65"
+                                RadiusTo="0.75" />
+                            <model:MeterArc
+                                model:ValueRange.ValueMax="30"
+                                model:ValueRange.ValueMin="0"
+                                Fill="#FF006400"
+                                RadiusFrom="0.65"
+                                RadiusTo="0.75" />
+                            <model:MeterArc />
+                        </view:SpeedMeter.MeterArcs>
+                        <view:SpeedMeter.MeterTicks>
+                            <model:MeterTick
+                                model:ValueRange.ValueMax="180"
+                                model:ValueRange.ValueMin="0"
+                                model:ValueRange.ValueStep="30"
+                                RadiusFrom="0.6"
+                                RadiusTo="0.75"
+                                Stroke="#FFFFFFFF"
+                                StrokeThickness="6" />
+                            <model:MeterTick
+                                model:ValueRange.ValueMax="180"
+                                model:ValueRange.ValueMin="0"
+                                model:ValueRange.ValueStep="10"
+                                RadiusFrom="0.65"
+                                RadiusTo="0.75"
+                                Stroke="#FFFFFFFF"
+                                StrokeThickness="2" />
+                        </view:SpeedMeter.MeterTicks>
+                    </view:SpeedMeter>
+                    <view:UserControl1
+                        ValueMax="{Binding ValueMax, ElementName=meter2}"
+                        ValueMin="{Binding ValueMin, ElementName=meter2}"
+                        Value="{Binding Value, ElementName=slider2}" />
+                </UniformGrid>
+
+                <Slider
+                    x:Name="slider2"
+                    VerticalAlignment="Bottom"
+                    Maximum="{Binding ValueMax, ElementName=meter2}"
+                    Minimum="{Binding ValueMin, ElementName=meter2}" />
+            </Grid>
+        </UniformGrid>
+    </Grid>
+</Window>

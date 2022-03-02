@@ -1,0 +1,69 @@
+﻿<Window
+    x:Class="CustomChart.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CustomChart"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:CustomChart.Model"
+    xmlns:view="clr-namespace:CustomChart.View"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <view:HorizontalTick
+                    x:Name="hTick"
+                    Height="10"
+                    Margin="0,0,0,-10"
+                    VerticalAlignment="Bottom"
+                    Range="200,0"
+                    Step="20"
+                    Stroke="Lime"
+                    StrokeLength="10"
+                    StrokeThickness="2" />
+                <view:HorizontalLabel
+                    Height="25"
+                    VerticalAlignment="Bottom"
+                    FontSize="14"
+                    Foreground="{Binding Stroke, ElementName=hTick}"
+                    Range="{Binding Range, ElementName=hTick}"
+                    Step="{Binding Step, ElementName=hTick}" />
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <model:GridLineShape HorizontalCount="5" VerticalCount="5" />
+                <model:AxisLineShape Stroke="Lime" StrokeThickness="2" />
+                <!--折线图-->
+                <model:PolylineFigure />
+                <!--高性能 GDI+ 折线图-->
+                <view:PolylineAsync
+                    Foreground="Chocolate"
+                    HorizontalRange="{Binding Range, ElementName=hTick}" VerticalRange="{Binding Range, ElementName=vTick}" />
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2">
+                <view:VerticalTick x:Name="vTick" Margin="-10,0,0,0" />
+                <view:VerticalLabel
+                    FontSize="14"
+                    Foreground="{Binding Stroke, ElementName=vTick}"
+                    Range="{Binding Range, ElementName=vTick}"
+                    Step="{Binding Step, ElementName=vTick}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
