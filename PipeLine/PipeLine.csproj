@@ -58,6 +58,9 @@
     <Compile Include="View\PipeLine.xaml.cs">
       <DependentUpon>PipeLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PipeLine2.xaml.cs">
+      <DependentUpon>PipeLine2.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +74,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\PipeLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PipeLine2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
