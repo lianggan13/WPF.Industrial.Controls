@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using LoginWithLoading.UserControls;
+using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Threading;
 using System.Windows.Media.Animation;
-using LoginWithLoading.UserControls;
-using MenuWindowChrome;
 
 namespace LoginWithLoading
 {
@@ -32,11 +28,9 @@ namespace LoginWithLoading
                 {
                     if (UserNumber.Text == "20201224" && UserPwd.Password == "123")
                     {
-
+                        // TODO: show main window
                         loading.IsLoading = false;
-                        new MenuWindowChrome.MainWindow().Show();
                         this.Hide();
-
                     }
                     else
                     {

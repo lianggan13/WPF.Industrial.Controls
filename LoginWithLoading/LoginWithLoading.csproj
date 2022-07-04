@@ -106,11 +106,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MenuWindowChrome\WPF.WindowChrome.csproj">
-      <Project>{C266BFD5-2850-4657-9D33-0262E424E546}</Project>
-      <Name>WPF.WindowChrome</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

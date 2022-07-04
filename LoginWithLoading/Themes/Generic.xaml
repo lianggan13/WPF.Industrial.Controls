@@ -8,13 +8,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Loading}">
-                    <!--<Border
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
-                        <ContentPresenter />
-                    </Border>-->
-
                     <Grid>
                         <ContentPresenter />
                         <Grid Background="#59FFFFFF">
@@ -25,7 +18,7 @@
                                 </Grid.RowDefinitions>
                                 <StackPanel Orientation="Horizontal">
                                     <Ellipse
-                                        x:Name="ellipse"
+                                        x:Name="ellipseLeft"
                                         Width="60"
                                         Height="60"
                                         Fill="#FF0080FF"
@@ -48,7 +41,7 @@
                                         Stroke="#FF111111"
                                         StrokeThickness="0" />
                                     <Ellipse
-                                        x:Name="ellipse1"
+                                        x:Name="ellipseRight"
                                         Width="60"
                                         Height="60"
                                         Fill="#FF0080FF"
@@ -87,14 +80,14 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard AutoReverse="True" RepeatBehavior="Forever">
-                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipseLeft" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
                                                 <EasingDoubleKeyFrame.EasingFunction>
                                                     <CubicEase EasingMode="EaseIn" />
                                                 </EasingDoubleKeyFrame.EasingFunction>
                                             </EasingDoubleKeyFrame>
                                         </DoubleAnimationUsingKeyFrames>
-                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipseRight" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0" />
                                             <EasingDoubleKeyFrame KeyTime="0:0:1" Value="60">
                                                 <EasingDoubleKeyFrame.EasingFunction>
@@ -107,14 +100,10 @@
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </BeginStoryboard>
-
                             </Trigger.EnterActions>
                         </Trigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
-
-
             </Setter.Value>
         </Setter>
         <Style.Triggers>
