@@ -72,7 +72,7 @@
                                         </GeometryDrawing.Pen>
                                         <GeometryDrawing.Geometry>
                                             <PathGeometry>
-                                                <PathFigure IsClosed="False">
+                                                <PathFigure IsClosed="False" StartPoint="0,0">
                                                     <LineSegment Point="10,0" />
                                                     <LineSegment Point="10,10" />
                                                 </PathFigure>

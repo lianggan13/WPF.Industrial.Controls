@@ -52,10 +52,17 @@
 
         <Path
             Data="M 75 3 A 72 72 0 0 1 147 75"
-            Stroke="Red"
             StrokeEndLineCap="Round"
             StrokeStartLineCap="Round"
-            StrokeThickness="4" />
+            StrokeThickness="4">
+            <Path.Stroke>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FF87EEDD" />
+                    <GradientStop Offset="1" Color="#FF6977F2" />
+                </LinearGradientBrush>
+            </Path.Stroke>
+
+        </Path>
 
 
         <TextBox
