@@ -1,0 +1,86 @@
+<UserControl
+    x:Class="ProgressLoading.Progresses.LiquidWaveProgress"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ProgressLoading.Progresses"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="LiquidWaveControl"
+    d:Height="200"
+    d:Width="200"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="WaveMoveStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimation
+                AutoReverse="True"
+                Storyboard.TargetName="WaveTransform"
+                Storyboard.TargetProperty="X"
+                From="0"
+                To="-50"
+                Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="WavePhaseStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimation
+                Storyboard.TargetName="LiquidWaveControl"
+                Storyboard.TargetProperty="WavePhase"
+                From="0"
+                To="6.2831853"
+                Duration="0:0:4" />
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <!--<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource WaveMoveStoryboard}" />
+        </EventTrigger>-->
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource WavePhaseStoryboard}" />
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <Grid>
+        <Ellipse Fill="#15181e" />
+        <Path x:Name="WavePath" Data="M 0,120 Q 25,100 50,120 Q 75,140 100,120 Q 125,100 150,120 Q 175,140 200,120 L 200,200 L 0,200 Z">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#00FFFF" />
+                    <GradientStop Offset="1" Color="#76EE00" />
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.Clip>
+                <EllipseGeometry
+                    Center="100,100"
+                    RadiusX="100"
+                    RadiusY="100" />
+            </Path.Clip>
+            <Path.RenderTransform>
+                <TranslateTransform x:Name="WaveTransform" />
+            </Path.RenderTransform>
+        </Path>
+        <Path
+            x:Name="WavePath2"
+            Data="M 0,120 Q 25,140 50,120 Q 75,100 100,120 Q 125,140 150,120 Q 175,100 200,120 L 200,200 L 0,200 Z"
+            Opacity="0.4">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                    <GradientStop Color="#00FFFF" />
+                    <GradientStop Offset="1" Color="#76EE00" />
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.Clip>
+                <EllipseGeometry
+                    Center="100,100"
+                    RadiusX="100"
+                    RadiusY="100" />
+            </Path.Clip>
+        </Path>
+        <TextBlock
+            x:Name="PercentageText"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            d:Text="30%"
+            FontSize="40"
+            FontWeight="Medium"
+            Foreground="#8b8d90"
+            Text="{Binding Value, ElementName=LiquidWaveControl, StringFormat='{}{0}%'}" />
+    </Grid>
+</UserControl>
