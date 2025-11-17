@@ -12,8 +12,9 @@
     Height="450"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <TabControl>
-        <TabItem Header="RotateLoading">
+    <Window.Resources />
+    <TabControl SelectedIndex="1">
+        <!--<TabItem Header="RotateLoading">
             <loadings:RotateLoading Radius="60" Run="True" />
         </TabItem>
         <TabItem Header="SunLoading">
@@ -21,14 +22,21 @@
         </TabItem>
         <TabItem Header="BumpLoading">
             <loadings:BumpLoading />
-        </TabItem>
+        </TabItem>-->
 
         <TabItem Header="CircularBar">
             <progresses:ProgressCircle
                 CircleBarThickness="5"
                 CircleThickness="10"
                 Radius="75"
-                Value="90" />
+                Value="4" />
+        </TabItem>
+
+        <TabItem Header="LiquidBar">
+            <progresses:LiquidWaveProgress
+                Width="300"
+                Height="300"
+                Value="50" />
         </TabItem>
 
     </TabControl>

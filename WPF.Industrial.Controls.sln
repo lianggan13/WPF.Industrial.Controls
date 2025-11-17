@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWithLoading", "LoginWi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtesianWell", "ArtesianWell\ArtesianWell.csproj", "{6AF44325-5547-4FDE-AB45-D98273AFAD6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipeLine", "PipeLine\PipeLine.csproj", "{0E60233F-600C-4108-9490-83A621E1DF5F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pump", "Pump\Pump.csproj", "{F4D8DA00-30D9-4748-814D-614AFAB5B313}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Box", "Box\Box.csproj", "{AA143212-EA4C-4E69-85FD-59CDB9A9686A}"
@@ -22,6 +20,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BombDropper", "BombDropper\BombDropper.csproj", "{1BDD8F23-3EA8-4153-AC5A-DABB2C754CAF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressLoading", "ProgressLoading\ProgressLoading.csproj", "{AA5317B0-2F82-43D4-9260-5D1FC16B829F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquidLine", "LiquidLine\LiquidLine.csproj", "{08FEACD3-D08A-4741-9658-33E3B254D492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,6 @@ Global
 		{6AF44325-5547-4FDE-AB45-D98273AFAD6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AF44325-5547-4FDE-AB45-D98273AFAD6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AF44325-5547-4FDE-AB45-D98273AFAD6C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E60233F-600C-4108-9490-83A621E1DF5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E60233F-600C-4108-9490-83A621E1DF5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E60233F-600C-4108-9490-83A621E1DF5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E60233F-600C-4108-9490-83A621E1DF5F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F4D8DA00-30D9-4748-814D-614AFAB5B313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F4D8DA00-30D9-4748-814D-614AFAB5B313}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4D8DA00-30D9-4748-814D-614AFAB5B313}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +65,10 @@ Global
 		{AA5317B0-2F82-43D4-9260-5D1FC16B829F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA5317B0-2F82-43D4-9260-5D1FC16B829F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA5317B0-2F82-43D4-9260-5D1FC16B829F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FEACD3-D08A-4741-9658-33E3B254D492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FEACD3-D08A-4741-9658-33E3B254D492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FEACD3-D08A-4741-9658-33E3B254D492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FEACD3-D08A-4741-9658-33E3B254D492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

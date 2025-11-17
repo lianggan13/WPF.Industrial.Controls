@@ -10,6 +10,16 @@
     mc:Ignorable="d">
     <RangeBase.Resources>
         <Style TargetType="{x:Type local:ProgressCircle}">
+            <Setter Property="CircleBrush" Value="#233553" />
+            <Setter Property="CircleBarStroke">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#547DF7" />
+                        <GradientStop Offset="0.75" Color="#5BB3F3" />
+                        <GradientStop Offset="1" Color="#6FE8D8" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type local:ProgressCircle}">
@@ -17,11 +27,10 @@
                             Width="{Binding ActualWidth, Mode=OneWay, ElementName=PART_Ellipse}"
                             Height="{Binding ActualHeight, Mode=OneWay, ElementName=PART_Ellipse}"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            d:Background="Red">
+                            VerticalAlignment="Center">
                             <Ellipse
                                 x:Name="PART_Ellipse"
-                                Stroke="Gray"
+                                Stroke="{TemplateBinding CircleBrush}"
                                 StrokeThickness="{TemplateBinding CircleThickness}">
                                 <Ellipse.Effect>
                                     <DropShadowEffect
@@ -34,69 +43,10 @@
 
                             <Path
                                 x:Name="PART_Progress"
+                                Stroke="{TemplateBinding CircleBarStroke}"
                                 StrokeEndLineCap="Round"
                                 StrokeStartLineCap="Round"
-                                StrokeThickness="{TemplateBinding CircleBarThickness}">
-                                <Path.Stroke>
-                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                        <GradientStop Offset="0" Color="#FF87EEDD" />
-                                        <GradientStop Offset="1" Color="#FF6977F2" />
-                                    </LinearGradientBrush>
-                                </Path.Stroke>
-                            </Path>
-
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Foreground="Black">
-                                <Run FontSize="20" Text="{Binding Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:ProgressCircle}}, StringFormat='{}{0}'}" />
-                                <Run Text="%" />
-                            </TextBlock>
-
-
-                            <!--<Viewbox Margin="60" Visibility="Visible">
-                                <ToggleButton
-                                    Width="25"
-                                    Height="25"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Background="LawnGreen"
-                                    Command="{Binding RotateAngleCmd}"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                                    Content="Start"
-                                    FontSize="9">
-                                    <ToggleButton.Template>
-                                        <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                            <Border
-                                                x:Name="border"
-                                                Background="{TemplateBinding Background}"
-                                                BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="15"
-                                                SnapsToDevicePixels="true">
-                                                <ContentPresenter
-                                                    x:Name="contentPresenter"
-                                                    Margin="{TemplateBinding Padding}"
-                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    Focusable="False"
-                                                    RecognizesAccessKey="True"
-                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsChecked" Value="true">
-                                                    <Setter TargetName="contentPresenter" Property="Content" Value="Stop" />
-                                                    <Setter TargetName="border" Property="Background" Value="Red" />
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </ToggleButton.Template>
-                                </ToggleButton>
-                            </Viewbox>-->
-
-
-
-
+                                StrokeThickness="{TemplateBinding CircleBarThickness}" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
