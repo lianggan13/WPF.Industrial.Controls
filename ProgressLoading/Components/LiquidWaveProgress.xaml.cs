@@ -3,11 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace ProgressLoading.Progresses
+namespace ProgressLoading.Components
 {
     public partial class LiquidWaveProgress : UserControl
     {
-        // 依赖属性
         public static readonly DependencyProperty WavePhaseProperty =
             DependencyProperty.Register(
                 nameof(WavePhase),
@@ -50,9 +49,19 @@ namespace ProgressLoading.Progresses
             ((LiquidWaveProgress)d).UpdateWavePath();
         }
 
+        public static readonly DependencyProperty MaximumProperty =
+            DependencyProperty.Register(nameof(Maximum), typeof(double), typeof(LiquidWaveProgress),
+                new PropertyMetadata(100.0, OnValueChanged));
+
+        public double Maximum
+        {
+            get => (double)GetValue(MaximumProperty);
+            set => SetValue(MaximumProperty, value);
+        }
+
         private void UpdateWavePath()
         {
-            double percent = Math.Max(0, Math.Min(1, Value / 100));
+            double percent = Math.Max(0, Math.Min(1, Maximum == 0 ? 0 : Value / Maximum));
             double width = this.ActualWidth;
             double height = this.ActualHeight;
 
@@ -60,7 +69,6 @@ namespace ProgressLoading.Progresses
             {
                 var ellipse = new EllipseGeometry(new Point(width / 2, height / 2), width / 2, height / 2);
                 WavePath.Data = ellipse;
-                //WavePath2.Data = ellipse;
                 return;
             }
 

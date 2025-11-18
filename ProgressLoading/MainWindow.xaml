@@ -2,11 +2,11 @@
     x:Class="ProgressLoading.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:components="clr-namespace:ProgressLoading.Components"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:loadings="clr-namespace:ProgressLoading.Loadings"
     xmlns:local="clr-namespace:ProgressLoading"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:progresses="clr-namespace:ProgressLoading.Progresses"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -25,15 +25,16 @@
         </TabItem>-->
 
         <TabItem Header="CircularBar">
-            <progresses:ProgressCircle
+            <components:ProgressCircle
                 CircleBarThickness="5"
                 CircleThickness="10"
+                IsIndeterminate="False"
                 Radius="75"
                 Value="90" />
         </TabItem>
 
         <TabItem Header="LiquidBar">
-            <progresses:LiquidWaveProgress
+            <components:LiquidWaveProgress
                 Width="300"
                 Height="300"
                 Value="50" />
