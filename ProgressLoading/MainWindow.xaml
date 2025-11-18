@@ -30,7 +30,7 @@
                 CircleThickness="10"
                 IsIndeterminate="False"
                 Radius="75"
-                Value="90" />
+                Value="4" />
         </TabItem>
 
         <TabItem Header="LiquidBar">

@@ -29,7 +29,7 @@
             <Path.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#547DF7" />
-                    <GradientStop Offset="0.6" Color="#5BB3F3" />
+                    <GradientStop Offset="0.5" Color="#5BB3F3" />
                     <GradientStop Offset="1" Color="#6FE8D8" />
                 </LinearGradientBrush>
             </Path.Fill>
@@ -48,6 +48,15 @@
             Data="M 0,120 Q 25,140 50,120 Q 75,100 100,120 Q 125,140 150,120 Q 175,100 200,120 L 200,200 L 0,200 Z"
             Fill="{Binding Fill, ElementName=WavePath}"
             Opacity="0.4">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                    <!--<GradientStop Color="#00FFFF" />
+                    <GradientStop Offset="1" Color="#76EE00" />-->
+                    <GradientStop Color="#547DF7" />
+                    <GradientStop Offset="0.5" Color="#5BB3F3" />
+                    <GradientStop Offset="1" Color="#6FE8D8" />
+                </LinearGradientBrush>
+            </Path.Fill>
             <Path.Clip>
                 <EllipseGeometry
                     Center="100,100"

@@ -1,0 +1,98 @@
+﻿<UserControl
+    x:Class="LiquidLine.Components.LiquidLine"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LiquidLine.Components"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <Border x:Name="border">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Padding" Value="3,1" />
+                    <Setter Property="CornerRadius" Value="3" />
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#FF2B3A42" />
+                                <GradientStop Offset="0.5" Color="#FF1C252A" />
+                                <GradientStop Offset="1" Color="#FF2B3A42" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#66FFFFFF" />
+                                <GradientStop Offset="0.6" Color="#00FFFFFF" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Border.Style>
+            <Line
+                x:Name="line"
+                Stretch="Fill"
+                X1="0"
+                X2="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth}"
+                Y1="0"
+                Y2="{Binding RelativeSource={RelativeSource Self}, Path=Y1}">
+                <Line.Style>
+                    <Style TargetType="Line">
+                        <Setter Property="Opacity" Value="0.5" />
+                        <Setter Property="StrokeThickness" Value="4" />
+                        <Setter Property="StrokeDashArray" Value="2,3" />
+                        <Setter Property="StrokeDashCap" Value="Round" />
+                        <Setter Property="StrokeEndLineCap" Value="Round" />
+                        <Setter Property="StrokeStartLineCap" Value="Round" />
+                        <Setter Property="Stroke">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Offset="0" Color="#FF7EE7FF" />
+                                    <GradientStop Offset="0.4" Color="#FF46C8FF" />
+                                    <GradientStop Offset="1" Color="#FF007ACC" />
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect
+                                    BlurRadius="8"
+                                    ShadowDepth="0"
+                                    Color="#5522B8FF" />
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Line.Style>
+            </Line>
+        </Border>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState Name="Normal" />
+                <VisualState Name="RightToLeft">
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimation
+                            Storyboard.TargetName="line"
+                            Storyboard.TargetProperty="StrokeDashOffset"
+                            From="0"
+                            To="5"
+                            Duration="0:0:1" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState Name="LeftToRight">
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimation
+                            Storyboard.TargetName="line"
+                            Storyboard.TargetProperty="StrokeDashOffset"
+                            From="0"
+                            To="-5"
+                            Duration="0:0:1" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</UserControl>
